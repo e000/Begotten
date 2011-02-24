@@ -1,0 +1,17 @@
+<html><head></head><body><script>
+    function giveXMLHttpRequest(page, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(d) {
+                if(xhr.readyState == 4) {   
+                    callback(xhr.status)
+                }
+            }
+        xhr.open('HEAD', page, true);
+        xhr.send()
+    }
+    chrome.extension.onRequest.addListener(function(r, s, c) {
+        if(r.action == 'xhr') {
+            giveXMLHttpRequest(r.page, c)
+        }
+    })
+</script></body></html>

@@ -1,0 +1,17 @@
+{
+  "name": "Begetten",
+  "version": "1.0",
+  "author": "e <e@tr0ll.in>",
+  "description": "Attempts to GET a specific GET.",
+  "content_scripts": [
+    {
+        "matches": ["http://boards.4chan.org/*"],
+        "js": ["jquery-1.5.min.js", "begetten.js"],
+        "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "http://sys.4chan.org/"
+  ],
+  "background_page" : "background.html"
+}
